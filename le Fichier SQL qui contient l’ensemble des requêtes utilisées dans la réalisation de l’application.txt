@@ -1,0 +1,33 @@
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    Password VARCHAR(100) NOT NULL
+  
+);
+
+INSERT INTO `users`( `username`, `Password`) VALUES ('kamal','123')
+
+CREATE TABLE Catégorie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+ 
+  
+);
+
+INSERT INTO `catégorie`( `name`) VALUES ('BOITIERS')
+
+
+
+CREATE TABLE Product (
+    reference VARCHAR(50) PRIMARY KEY,
+    image_url VARCHAR(255),
+    libelle VARCHAR(100) NOT NULL,
+    prix_unitaire DECIMAL(10, 2) NOT NULL,
+    quantite_min INT NOT NULL,
+    quantite_stock INT NOT NULL,
+    categorie_id INT,
+    FOREIGN KEY (category_id) REFERENCES Catégorie(id)
+);
+
+
+INSERT INTO `product`( `image_url`, `libelle`, `prix_unitaire`, `quantite_min`, `quantite_stock`, `category_id`) VALUES ('assets/cpu/amd-ryzen-5-5500-wraith-stealth-36-ghz-42-ghz-box-processeurs.jpg','-ryzen-5-5500-wraith-stealth-36-ghz-42-ghz','1500.00','10','2','2')
